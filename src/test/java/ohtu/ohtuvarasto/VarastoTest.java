@@ -1,19 +1,14 @@
 package ohtu.ohtuvarasto;
 
-import org.junit.*;
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class VarastoTest {
 
-    Varasto varasto;
-    double vertailuTarkkuus = 0.0001;
+    private Varasto varasto;
+    private double vertailuTarkkuus = 0.0001;
 
     @Before
     public void setUp() {
@@ -64,14 +59,14 @@ public class VarastoTest {
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
-    
+
     @Test
     public void konstruktori2() {
         Varasto v1 = new Varasto(10.25, 100.123);
         Varasto v2 = new Varasto(200.123, 20.25);
         Varasto v3 = new Varasto(-123.2, 2000.25);
         Varasto v4 = new Varasto(24.3, -100.2);
-        
+
         assertTrue(v1.getTilavuus() == 10.25);
         assertTrue(v2.getTilavuus() == 200.123);
         assertTrue(v3.getTilavuus() == 0.0);
@@ -81,13 +76,13 @@ public class VarastoTest {
         assertTrue(v3.getSaldo() == -123.2);
         assertTrue(v4.getSaldo() == 0.0);
     }
-    
+
     @Test
     public void konstruktori1() {
         Varasto v = new Varasto(-20);
         assertTrue(v.getTilavuus() == 0.0);
     }
-    
+
     @Test
     public void lisaaVarastoon() {
         Varasto v = new Varasto(10.0);
@@ -101,7 +96,7 @@ public class VarastoTest {
         v.lisaaVarastoon(-25.0);
         assertTrue(v.getSaldo() == 10);
     }
-    
+
     @Test
     public void otaVarastosta() {
         Varasto v = new Varasto(10.0);
@@ -112,7 +107,7 @@ public class VarastoTest {
         assertTrue(v.otaVarastosta(1) == 1);
         assertTrue(v.otaVarastosta(2) == 1.25);
     }
-    
+
     @Test
     public void toStringTest() {
         Varasto v = new Varasto(10.0);

@@ -7,16 +7,10 @@ apply plugin: 'application'
 mainClassName = 'ohtu.ohtuvarasto.Main'
 
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
 
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:20.0'
-
-    // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
 
@@ -25,7 +19,6 @@ jar {
         attributes 'Main-Class': 'ohtu.ohtuvarasto.Main'
     }
 }
-
 
 jacocoTestReport {
     reports {
